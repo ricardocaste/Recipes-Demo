@@ -56,7 +56,7 @@ class RecipeListPresenterTest {
         verify(view).showEmptyView()
     }
 
-    @Test()
+    @Test
     fun onAttach_whenLoadUserRecipeFail_shouldErrorMessage() {
         Mockito.doAnswer {
             it.onAnswer { RepositoryException("Test Error") }

@@ -5,11 +5,8 @@ import com.rmedina.recipesdemo.domain.interactor.UseCase
 import com.rmedina.recipesdemo.domain.interactor.recipes.RecipesListUseCase
 import com.rmedina.recipesdemo.presentation.base.BasePresenter
 import com.rmedina.recipesdemo.presentation.main.view.RecipeListView
-import javax.inject.Inject
 
-class RecipeListPresenter @Inject constructor(
-    private val recipeListUseCase: RecipesListUseCase
-) : BasePresenter<RecipeListView>() {
+class RecipeListPresenter(private val recipeListUseCase: RecipesListUseCase) : BasePresenter<RecipeListView>() {
     private var recipeList: MutableList<Recipe> = mutableListOf()
 
     override fun onAttach(view: RecipeListView) {

@@ -1,7 +1,6 @@
 package com.rmedina.recipesdemo.presentation.main.view
 
 import com.rmedina.recipesdemo.domain.Recipe
-import com.rmedina.recipesdemo.domain.RecipeContainer
 import com.rmedina.recipesdemo.presentation.base.BaseView
 
 interface RecipeListView : BaseView {

@@ -3,12 +3,11 @@ package com.rmedina.recipesdemo.presentation.main.activities
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
-import android.support.v7.widget.SearchView
 import com.rmedina.recipesdemo.R
 import com.rmedina.recipesdemo.domain.Recipe
-import com.rmedina.recipesdemo.infrastructure.di.component.ViewComponent
 import com.rmedina.recipesdemo.presentation.base.BaseActivity
 import com.rmedina.recipesdemo.presentation.base.navigateToDetail
 import com.rmedina.recipesdemo.presentation.base.utils.hide
@@ -18,13 +17,11 @@ import com.rmedina.recipesdemo.presentation.main.adapter.RecipeListAdapter
 import com.rmedina.recipesdemo.presentation.main.presenter.RecipeListPresenter
 import com.rmedina.recipesdemo.presentation.main.view.RecipeListView
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
+import org.koin.android.ext.android.inject
 
 class MainActivity : BaseActivity(), RecipeListView {
 
-    @Inject
-    lateinit var presenter: RecipeListPresenter
-
+    private val presenter: RecipeListPresenter by inject()
     private val adapter by lazy { RecipeListAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,9 +72,5 @@ class MainActivity : BaseActivity(), RecipeListView {
 
     override fun onFilterRecipes(recipeList: List<Recipe>) {
         adapter.swapData(recipeList)
-    }
-
-    override fun initializeInjector(viewComponent: ViewComponent) {
-        viewComponent.inject(this)
     }
 }

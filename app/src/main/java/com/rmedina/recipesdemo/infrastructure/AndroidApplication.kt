@@ -1,28 +1,22 @@
 package com.rmedina.recipesdemo.infrastructure
 
 import android.app.Application
-import com.rmedina.recipesdemo.BuildConfig
-import com.rmedina.recipesdemo.infrastructure.di.component.ApplicationComponent
-import com.rmedina.recipesdemo.infrastructure.di.component.DaggerApplicationComponent
-import com.rmedina.recipesdemo.infrastructure.di.module.ApplicationModule
-import timber.log.Timber
+import com.rmedina.recipesdemo.infrastructure.di.apiClientGeneratorModule
+import com.rmedina.recipesdemo.infrastructure.di.presenterModule
+import com.rmedina.recipesdemo.infrastructure.di.repositoryModule
+import com.rmedina.recipesdemo.infrastructure.di.useCaseModule
+import org.koin.core.context.startKoin
 
 class AndroidApplication : Application() {
 
-    val applicationComponent: ApplicationComponent by lazy {
-        DaggerApplicationComponent.builder().applicationModule(ApplicationModule(this)).build()
-    }
-
-
     override fun onCreate() {
-        applicationComponent.inject(this)
         super.onCreate()
-        initTimber()
+        insertKoin()
     }
 
-    private fun initTimber() {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
+    private fun insertKoin() {
+        startKoin {
+            modules(listOf(repositoryModule, useCaseModule, presenterModule, apiClientGeneratorModule))
         }
     }
 

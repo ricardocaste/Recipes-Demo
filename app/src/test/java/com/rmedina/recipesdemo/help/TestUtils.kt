@@ -9,9 +9,7 @@ fun <T> InvocationOnMock.onAnswer(supplier: () -> T) {
         val onResult = args[1] as (T) -> Unit
         val onError = args[2] as (Throwable) -> Unit
 
-        val result = supplier()
-
-        when (result) {
+        when (val result = supplier()) {
             is Throwable -> onError(result)
             else -> onResult(result)
         }

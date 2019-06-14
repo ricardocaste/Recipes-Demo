@@ -1,11 +1,11 @@
 package com.rmedina.recipesdemo.infrastructure.di
 
-import com.rmedina.recipesdemo.data.datasource.ApiClientGenerator
-import com.rmedina.recipesdemo.data.datasource.RetrofitApiClientGenerator
-import com.rmedina.recipesdemo.data.repository.recipes.RecipeDataRepository
-import com.rmedina.recipesdemo.domain.interactor.recipes.RecipesListUseCase
-import com.rmedina.recipesdemo.domain.repository.RecipeRepository
+import com.rmedina.data.repository.recipes.RecipeDataRepository
+import com.rmedina.data.source.ApiClientGenerator
+import com.rmedina.data.source.RetrofitApiClientGenerator
+import com.rmedina.domain.repository.RecipeRepository
 import com.rmedina.recipesdemo.presentation.main.presenter.RecipeListPresenter
+import com.rmedina.usecases.recipes.RecipesListUseCase
 import org.koin.dsl.module
 
 val repositoryModule = module {

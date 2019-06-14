@@ -1,10 +1,10 @@
 package com.rmedina.recipesdemo.presentation.main.presenter
 
 import com.rmedina.recipesdemo.domain.Recipe
-import com.rmedina.recipesdemo.domain.interactor.UseCase
-import com.rmedina.recipesdemo.domain.interactor.recipes.RecipesListUseCase
 import com.rmedina.recipesdemo.presentation.base.BasePresenter
 import com.rmedina.recipesdemo.presentation.main.view.RecipeListView
+import com.rmedina.usecases.UseCase
+import com.rmedina.usecases.recipes.RecipesListUseCase
 
 class RecipeListPresenter(private val recipeListUseCase: RecipesListUseCase) : BasePresenter<RecipeListView>() {
     private var recipeList: MutableList<Recipe> = mutableListOf()

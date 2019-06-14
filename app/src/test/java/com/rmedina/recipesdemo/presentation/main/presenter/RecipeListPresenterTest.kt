@@ -5,7 +5,7 @@ import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import com.rmedina.recipesdemo.domain.Recipe
 import com.rmedina.recipesdemo.domain.exception.RepositoryException
-import com.rmedina.recipesdemo.domain.interactor.recipes.RecipesListUseCase
+import com.rmedina.domain.interactor.recipes.RecipesListUseCase
 import com.rmedina.recipesdemo.help.mockRecipe
 import com.rmedina.recipesdemo.help.onAnswer
 import com.rmedina.recipesdemo.presentation.main.view.RecipeListView
